@@ -3,9 +3,9 @@ var audioOption={channels:2,bitDepth:16,sampleRate:44100};
  colors=require('colors')
 speaker=require('speaker')
 fs=require('fs');
-song='song.mp3';
-var path=require('path')
- inputstream=fs.createReadStream(process.cwd()+'/'+song);
+songpath=process.argv[2];
+
+ inputstream=fs.createReadStream(songpath);
  decoder= new lame.Decoder(audioOption);
 decoder.on('format',function(){
     console.log(colors.red("decoded successfully"));
